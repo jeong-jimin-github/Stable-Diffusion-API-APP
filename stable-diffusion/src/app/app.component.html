@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full load" (click)="reset()">리셋</button>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full submit" (click)="getimg()">생성</button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Stable Diffusion</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="content">
+  <img class="rounded-lg border border-black-300 img" src="{{img}}" /><br>
+  <textarea [value]="prompt" (input)="onValueChange($event)" rows="4" class="block p-2.5 w-full text-sm text-black-900 bg-black-50 rounded-lg border border-black-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-black-700 dark:border-black-600 dark:placeholder-black-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="프롬프트 입력..."></textarea>
+  </div>
+</ion-content>
+
+<script>
+
+</script>

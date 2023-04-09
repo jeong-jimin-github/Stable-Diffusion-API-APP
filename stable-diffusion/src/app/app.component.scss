@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.load {
+    margin: 10px;
+}
+
+.submit {
+    right: 0;
+    position: fixed;
+    margin: 10px;
+}
+
+.content {
+    margin: 10px;
+}
+
+.img {
+    max-width: 100%;
+}
