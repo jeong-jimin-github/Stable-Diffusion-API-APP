@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ToastController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import { Filesystem, Directory } from '@capacitor/filesystem';
 
 @Component({
   selector: 'app-root',
@@ -13,26 +14,80 @@ import { AlertController } from '@ionic/angular';
 export class AppComponent {
   img: any;
   prompt: any;
+  image: any; //base64
+  width: any;
+  height: any;
+  step: any;
+  toast: any;
+  generateRandomString = () => {
+    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    let result = '';
+    const charactersLength = characters.length;
+    for (let i = 0; i < 10; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+
+  async saveimg() {
+      const base64Data = this.image;
+      const filename = this.generateRandomString() + ".jpeg";
+      const save = await Filesystem.writeFile({
+        path: filename,
+        data: base64Data,
+        directory: Directory.Documents,
+        recursive: true
+      });
+      this.alert("저장 완료", "생성된 이미지가 저장되었습니다.");
+    };
+
   reset(){
     this.prompt = "";
     this.img = "assets/img.jpg";
   }
-  async alert(msg: string) {
+  async alert(title:string, msg: string) {
     const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: 'Important message',
+      header: title,
       message: msg,
-      buttons: ['OK'],
+      buttons: ['확인'],
     })
     await alert.present();
   }
+  async areyouokalert() {
+    const alert = await this.alertController.create({
+      header: "정말로 리셋하시겠습니까?",
+      message: "작성한 프롬프트와 이미지가 사라집니다.",
+      buttons: [  
+        {  
+          text: '아니오',  
+          handler: data => {  
+            console.log('취소됨');  
+          }  
+        },  
+        {  
+          text: '네',  
+          handler: data => {  
+            this.reset();
+          }  
+        }  
+      ],
+    })
+    await alert.present();
+  }
+  async openToast() {  
+    this.toast = await this.toastCtrl.create({  
+      message: '이미지를 생성중입니다...' 
+    });  
+    this.toast.present();
+  }  
   getimg() {
+    this.openToast();
     const data = JSON.stringify({
       "prompt": "masterpiece, best quality, " + this.prompt,
       "sampler_name": "DPM++ 2M Karras",
-      "width": 512,
-      "height": 512,
-      "steps": 20,
+      "width": this.width,
+      "height": this.height,
+      "steps": this.step,
       "negative_prompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts,signature, watermark, username, blurry, artist name, bad_prompt",
       });
 
@@ -43,8 +98,10 @@ export class AppComponent {
     })
       .then((response) => response.json())
       .then((data) => {
-        const image = data.images[0];
-        this.img = 'data:image/jpeg;base64,' + image;
+        this.image = data.images[0];
+        this.img = 'data:image/jpeg;base64,' + this.image;
+        this.toast.dismiss();
+        this.saveimg();
         });
     }
 
@@ -52,10 +109,31 @@ export class AppComponent {
     console.log(event.target);
     const value = (event.target as any).value;
     this.prompt = value;
-  }
+  } 
 
-  constructor(private alertController: AlertController) {
+  onValueChangewd(event: Event): void {
+    console.log(event.target);
+    const value = (event.target as any).value;
+    this.width = value;
+  } 
+  
+  onValueChangehi(event: Event): void {
+    console.log(event.target);
+    const value = (event.target as any).value;
+    this.height = value;
+  } 
+
+  onValueChangest(event: Event): void {
+    console.log(event.target);
+    const value = (event.target as any).value;
+    this.step = value;
+  } 
+
+  constructor(private alertController: AlertController, public toastCtrl: ToastController) {
     this.img = "assets/img.jpg";
     this.prompt = "";
+    this.width = 512;
+    this.height = 512;
+    this.step = 10;
   }
 }

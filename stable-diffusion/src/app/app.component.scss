@@ -2,14 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.load {
-    margin: 10px;
-}
-
 .submit {
     right: 0;
     position: fixed;
-    margin: 10px;
+    bottom: 10px;
+    margin-right: 10px;
 }
 
 .content {
@@ -18,4 +15,37 @@
 
 .img {
     max-width: 100%;
+}
+
+.txt {
+    resize: none;
+}
+
+.wh {
+    padding-top: 20px;
+}
+
+.wd {
+    float: left;
+}
+
+.hi {
+    float: left;
+}
+
+.size {
+    float: right;
+}
+
+.st {
+    margin-left: 30px;
+}
+
+.wk {
+    float: left;
+    padding: 10px;
+}
+
+.tt {
+    float: left;
 }
