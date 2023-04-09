@@ -1,7 +1,15 @@
+<ion-app>
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full load" (click)="reset()">리셋</button>
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full submit" (click)="getimg()">생성</button>
+    <div class="tt ttt"><ion-title>Stable Diffusion</ion-title></div>
+    <div class="inline-flex submit">
+      <button (click)="areyouokalert()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        리셋
+      </button>
+      <button (click)="getimg()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        생성
+      </button>
+    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -13,10 +21,17 @@
   </ion-header>
   <div class="content">
   <img class="rounded-lg border border-black-300 img" src="{{img}}" /><br>
-  <textarea [value]="prompt" (input)="onValueChange($event)" rows="4" class="block p-2.5 w-full text-sm text-black-900 bg-black-50 rounded-lg border border-black-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-black-700 dark:border-black-600 dark:placeholder-black-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="프롬프트 입력..."></textarea>
+  <textarea [value]="prompt" (input)="onValueChange($event)" rows="4" class="txt block p-2.5 w-full text-sm text-black-900 bg-black-50 rounded-lg border border-black-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-black-700 dark:border-black-600 dark:placeholder-black-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="프롬프트 입력..."></textarea>
+  <div class="wh">
+    <input (input)="onValueChangewd($event)" type="number" min="100" placeholder="가로" [value]="width" max="1000" class="wd txt block p-2.5 text-sm text-black-900 bg-black-50 rounded-lg border border-black-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-black-700 dark:border-black-600 dark:placeholder-black-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+    <p class="wk">✖</p><input (input)="onValueChangehi($event)" type="number" min="100" placeholder="세로" [value]="height" max="1000" class="hi txt block p-2.5 text-sm text-black-900 bg-black-50 rounded-lg border border-black-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-black-700 dark:border-black-600 dark:placeholder-black-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
   </div>
+<div class="size">
+<input (input)="onValueChangest($event)" type="number" min="5" placeholder="스텝" [value]="step" max="50" class="st txt block p-2.5 text-sm text-black-900 bg-black-50 rounded-lg border border-black-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-black-700 dark:border-black-600 dark:placeholder-black-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+</div>
+</div><br>
 </ion-content>
-
+</ion-app>
 <script>
 
 </script>
