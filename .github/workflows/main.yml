@@ -1,4 +1,5 @@
 name: Build Android
+on: [push, pull_request]
 
 on:
   push:
