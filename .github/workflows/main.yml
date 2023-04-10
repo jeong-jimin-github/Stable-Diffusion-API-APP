@@ -35,21 +35,8 @@ jobs:
       - name: Build Android Dev APK
         run: cd stable-diffusion && ionic capacitor build android
 
-      - name: Build Android Release APK
-        run: cd stable-diffusion && ionic capacitor build android --release --prod
-
-      - name: Generate the Android App Bundle
-        working-directory: ./stable-diffusion/android/
-        run: ./gradlew bundle
-
       - name: Upload dev APK
         uses: actions/upload-artifact@v1
         with:
           name: app-dev
           path: apk/app-debug.apk
-
-      - name: Upload release bundle
-        uses: actions/upload-artifact@v1
-        with:
-          name: app-release
-          path: apk/app.aab
