@@ -1,11 +1,6 @@
 name: Build Android
 on: [push, pull_request]
 
-on:
-  push:
-    branches:
-      - master
-
 jobs:
   build:
     name: Build APK
