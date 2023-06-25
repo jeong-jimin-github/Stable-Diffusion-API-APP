@@ -91,7 +91,7 @@ export class AppComponent {
       "negative_prompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts,signature, watermark, username, blurry, artist name, bad_prompt",
       });
 
-    fetch("https://com.kuuhaku.ga/sdapi/v1/txt2img", {
+    fetch("http://115.138.164.135:7860/sdapi/v1/txt2img", {
       method: "POST",
       body: data,
       headers: { "Content-Type": "application/json; charset=utf-8" },
