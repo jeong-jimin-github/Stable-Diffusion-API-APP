@@ -43,7 +43,7 @@ export class AppComponent {
 
   reset(){
     this.prompt = "";
-    this.img = "assets/img.jpg";
+    this.img = "assets/img.png";
   }
   async alert(title:string, msg: string) {
     const alert = await this.alertController.create({
@@ -130,7 +130,7 @@ export class AppComponent {
   } 
 
   constructor(private alertController: AlertController, public toastCtrl: ToastController) {
-    this.img = "assets/img.jpg";
+    this.img = "assets/img.png";
     this.prompt = "";
     this.width = 512;
     this.height = 512;

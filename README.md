@@ -1,5 +1,5 @@
-# Stable-Diffusion-Android
+# Stable-Diffusion-API-APP
  
-문제점
+Stable Diffusion Webui API를 사용한 Ionic 어플리케이션.
 
-1. ios에서 생성물 저장 안됨.
+스크린샷
