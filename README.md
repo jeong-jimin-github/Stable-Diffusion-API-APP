@@ -1,5 +1,5 @@
 # Stable-Diffusion-API-APP
-<img src="https://github.com/jeong-jimin-github/Stable-Diffusion-API-APP/assets/95138574/64e0a091-0b75-4ee0-936d-292e27920215" alt="logo" width="200"/>
+<img src="https://github.com/jeong-jimin-github/Stable-Diffusion-API-APP/assets/95138574/d86fd545-642f-4d98-8f6b-4587f2fb51d5" alt="logo" width="200"/>
 
 <br><br>
 
