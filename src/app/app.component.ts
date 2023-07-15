@@ -88,7 +88,7 @@ export class AppComponent {
       "width": this.width,
       "height": this.height,
       "steps": this.step,
-      "negative_prompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts,signature, watermark, username, blurry, artist name, bad_prompt",
+      "negative_prompt": "bad-hands-5, EasyNegative, ng_deepnegative_v1_75t, verybadimagenegative_v1.3, monochrome, jpeg artifacts, text, watermark, signature, worst quality, low quality, lowres, (interlocked fingers, fused fingers, badly draw hands:1.5),",
       });
 
     fetch("http://115.138.164.135:7860/sdapi/v1/txt2img", {
