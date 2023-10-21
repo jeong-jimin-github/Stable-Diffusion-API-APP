@@ -83,12 +83,16 @@ export class AppComponent {
   getimg() {
     this.openToast();
     const data = JSON.stringify({
-      "prompt": "masterpiece, best quality, " + this.prompt,
+      "prompt": "(masterpiece, best quality, extremely detailed CG, beautiful detailed eyes, ultra-detailed, intricate details, 8k wallpaper, elaborate features)" + this.prompt,
       "sampler_name": "DPM++ 2M Karras",
       "width": this.width,
       "height": this.height,
       "steps": this.step,
-      "negative_prompt": "bad-hands-5, EasyNegative, ng_deepnegative_v1_75t, verybadimagenegative_v1.3, monochrome, jpeg artifacts, text, watermark, signature, worst quality, low quality, lowres, (interlocked fingers, fused fingers, badly draw hands:1.5),",
+      "enable_hr": true,
+      "hr_scale": 1.5,
+      "denoising_strength": 0.7,
+      "hr_upscaler": "R-ESRGAN 4x+ Anime6B",
+      "negative_prompt": "(worst quality, normal quality, low quality:1.4), lowres, blurry",
       });
 
     fetch("http://115.138.164.135:7860/sdapi/v1/txt2img", {

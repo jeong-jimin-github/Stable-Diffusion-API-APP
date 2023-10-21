@@ -85,4 +85,4 @@ packages/react/test/build/
 packages/react-router/test/build/
 
 .npmrc
-node_modules
+node_modules/.bin/js-yaml
