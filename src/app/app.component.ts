@@ -83,12 +83,12 @@ export class AppComponent {
   getimg() {
     this.openToast();
     const data = JSON.stringify({
-      "prompt": "(masterpiece, best quality, extremely detailed CG, beautiful detailed eyes, ultra-detailed, intricate details, 8k wallpaper, elaborate features)" + this.prompt,
+      "prompt": "(masterpiece, best quality)" + this.prompt,
       "sampler_name": "DPM++ 2M Karras",
       "width": this.width,
       "height": this.height,
       "steps": this.step,
-      "enable_hr": true,
+      "enable_hr": false,
       "hr_scale": 1.5,
       "denoising_strength": 0.7,
       "hr_upscaler": "R-ESRGAN 4x+ Anime6B",
@@ -136,8 +136,8 @@ export class AppComponent {
   constructor(private alertController: AlertController, public toastCtrl: ToastController) {
     this.img = "assets/img.png";
     this.prompt = "";
-    this.width = 512;
-    this.height = 512;
-    this.step = 10;
+    this.width = 1024;
+    this.height = 1024;
+    this.step = 20;
   }
 }
