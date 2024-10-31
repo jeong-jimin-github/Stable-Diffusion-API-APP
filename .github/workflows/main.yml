@@ -46,10 +46,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-dev
-          path: apk/app-debug.apk
+          path: ./android/apk/app-debug.apk
 
       - name: Upload release bundle
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: apk/app.aab
+          path: ./android/apk/app.aab
