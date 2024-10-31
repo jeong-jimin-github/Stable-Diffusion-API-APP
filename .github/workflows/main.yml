@@ -42,10 +42,14 @@ jobs:
         working-directory: ./android/
         run: ./gradlew bundle
 
-      - name: Save release bundle as artifact
-        uses: actions/upload-artifact@83fd05a356d7e2593de66fc9913b3002723633cb # tag=v3
+      - name: Upload dev APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-dev
+          path: apk/app-debug.apk
+
+      - name: Upload release bundle
+        uses: actions/upload-artifact@v1
         with:
           name: app-release
-          path: |
-            ${{ github.workspace }}/packages/app/android/app/build/outputs/bundle/release/*.aab
-            ${{ github.workspace }}/packages/app/android/app/build/outputs/apk/release/*.apk
+          path: apk/app.aab
