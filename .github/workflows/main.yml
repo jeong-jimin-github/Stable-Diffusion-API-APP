@@ -43,7 +43,7 @@ jobs:
         run: ./gradlew bundle
 
       - name: Upload dev APK
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: app-dev
           path: apk/app-debug.apk
