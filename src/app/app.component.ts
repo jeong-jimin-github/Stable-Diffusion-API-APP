@@ -30,6 +30,7 @@ export class AppComponent {
   }
 
   async saveimg() {
+      Filesystem.requestPermissions();
       const base64Data = this.image;
       const filename = this.generateRandomString() + ".jpeg";
       const save = await Filesystem.writeFile({
