@@ -36,7 +36,7 @@ export class AppComponent {
       const save = await Filesystem.writeFile({
         path: filename,
         data: base64Data,
-        directory: Directory.Documents,
+        directory: Directory.External,
         recursive: true
       });
       this.alert("저장 완료", "생성된 이미지가 저장되었습니다.");
