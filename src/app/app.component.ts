@@ -96,7 +96,7 @@ export class AppComponent {
       "negative_prompt": "(worst quality, normal quality, low quality:1.4), lowres, blurry",
       });
 
-    fetch("http://115.138.164.135:7860/sdapi/v1/txt2img", {
+    fetch("http://<Your IP>:7860/sdapi/v1/txt2img", {
       method: "POST",
       body: data,
       headers: { "Content-Type": "application/json; charset=utf-8" },
